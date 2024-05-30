@@ -1,0 +1,22 @@
+type Query {
+    dogs: [Dog!]
+    dogsById(id: String!): [Dog!]
+}
+
+type Dog {
+    id: ID!
+    name: String!
+    race: String!
+    owner: String!
+}
+
+
+type Mutation {
+    CreateDog(input: CreateDogInput!): Dog
+}
+
+input CreateDogInput {
+    name: String!
+    race: String!
+    owner: String!
+}

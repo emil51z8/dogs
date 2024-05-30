@@ -1,0 +1,128 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  table th, table td {
+    padding: 12px 15px;
+  }
+  
+  table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+
+  /* Form */
+  form {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  form input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 16px;
+  }
+  
+  form input[type="text"]:focus {
+    border-color: #009879;
+    outline: none;
+  }
+  
+  form button {
+    background-color: #009879;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #007d67;
+  }
+
+  /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #009879;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .nav-item {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: #007d67;
+  }
+  
+  .nav-item.active {
+    background-color: #007d67;
+  }
+
+  .field {
+    margin-bottom: 1.5rem; /* Adds space below each field */
+  }
+  
+  .field .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .field .control .input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 16px;
+  }
