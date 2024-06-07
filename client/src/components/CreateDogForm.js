@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import { CREATE_DOG } from '../lib/graphql/queries';
+import { CREATE_DOG, GET_DOGS } from '../lib/graphql/queries';
 
 const CreateDogForm = ({ user }) => {
-  const [formState, setFormState] = useState({ name: '', race: '', owner: '' });
+  const [formState, setFormState] = useState({ name: '', breed: '', owner: '' });
   const navigate = useNavigate();
+  
   const [createDog, { data, loading, error }] = useMutation(CREATE_DOG, {
+    refetchQueries: [
+      { query: GET_DOGS },
+    ],
     onCompleted: () => {
-        navigate('/doglist');
-    }
+      navigate('/doglist');
+    },
   });
 
   const handleChange = (e) => {
@@ -41,11 +45,11 @@ const CreateDogForm = ({ user }) => {
           />
         </div>
         <div>
-          <label htmlFor="race">Race:</label>
+          <label htmlFor="breed">Breed:</label>
           <input
             type="text"
-            id="race"
-            name="race"
+            id="breed"
+            name="breed"
             value={formState.race}
             onChange={handleChange}
           />

@@ -1,22 +1,31 @@
 type Query {
     dogs: [Dog!]
     dogsById(id: String!): [Dog!]
+    getDogById(id: Int!): Dog
 }
 
 type Dog {
     id: ID!
     name: String!
-    race: String!
+    breed: String!
     owner: String!
 }
 
 
 type Mutation {
     CreateDog(input: CreateDogInput!): Dog
+    deleteDog(id: Int!): Dog
+    updateDog(input: UpdateDogInput!): Dog
 }
 
 input CreateDogInput {
     name: String!
-    race: String!
+    breed: String!
     owner: String!
+}
+
+input UpdateDogInput {
+    id: Int!
+    name: String
+    breed: String
 }

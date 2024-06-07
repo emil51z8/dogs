@@ -15,7 +15,7 @@ const DogList = () => {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Race</th>
+              <th>Breed</th>
               <th>Owner</th>
             </tr>
           </thead>
@@ -24,7 +24,7 @@ const DogList = () => {
               <tr key={dog.id}>
                 <td>{dog.id}</td>
                 <td>{dog.name}</td>
-                <td>{dog.race}</td>
+                <td>{dog.breed}</td>
                 <td>{dog.owner}</td>
               </tr>
             ))}

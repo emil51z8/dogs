@@ -1,4 +1,4 @@
-import { getAllDogs, createDog, getDogsById } from "./db/dogs.js";
+import { getAllDogs, createDog, getDogsById, deleteDog, updateDog, getDogById } from "./db/dogs.js";
 
 export const resolvers = {
     Query: {
@@ -7,11 +7,19 @@ export const resolvers = {
         },
         dogsById: (_root, { id }) => {
             return getDogsById(id);
+        },
+        getDogById: (_root, { id }) => {
+            return getDogById(id);
         }
     },
     Mutation: {
-        CreateDog: (_root, { input: { name, race, owner } }) => {
-            return createDog({ name, race, owner });
-    }
-    }
+        CreateDog: (_root, { input: { name, breed, owner } }) => {
+            return createDog({ name, breed, owner });
+    },
+        deleteDog: (_root, { id }) => deleteDog(id),
+
+        updateDog: (_root, { input: { id, name,breed} }) => {
+            return updateDog({ id, name,breed });
+        }
+    },
 };
