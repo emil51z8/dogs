@@ -29,6 +29,9 @@ const App = () => {
 
   return (
     <div>
+      <header>
+        <h1>Dog community app</h1>
+      </header>
       <div className="navbar">
         <Link to='/' className={`nav-item nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
         <Link to='/create' className={`nav-item nav-link ${location.pathname === '/create' ? 'active' : ''}`}>Create Dog</Link>
