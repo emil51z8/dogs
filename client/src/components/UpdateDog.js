@@ -12,7 +12,8 @@ const UpdateDog = ({ dogId, onUpdate }) => {
 
     const [formData, setFormData] = useState({
         name: '',
-        breed: ''
+        breed: '',
+        dateofbirth: ''
     });
 
     useEffect(() => {
@@ -20,7 +21,8 @@ const UpdateDog = ({ dogId, onUpdate }) => {
             // Set initial form values from fetched data
             setFormData({
                 name: data.dog.name,
-                breed: data.dog.breed
+                breed: data.dog.breed,
+                dateofbirth: data.dog.dateofbirth,
             });
         }
     }, [loading, data]);
@@ -34,13 +36,17 @@ const UpdateDog = ({ dogId, onUpdate }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const date = new Date(formData.dateofbirth);
+        const formattedDate = date.toISOString().split('T')[0];
+
         try {
             await updateDog({
                 variables: {
                     input: {
                         id: dogId,
                         name: formData.name,
-                        breed: formData.breed
+                        breed: formData.breed,
+                        dateofbirth: formattedDate
                     }
                 }
             });
@@ -61,6 +67,8 @@ const UpdateDog = ({ dogId, onUpdate }) => {
                 <input type="text" name="name" value={formData.name} onChange={handleChange} />
                 <label>Breed:</label>
                 <input type="text" name="breed" value={formData.breed} onChange={handleChange} />
+                <label>Date of Birth:</label>
+                <input type="date" name="dateofbirth" value={formData.dateofbirth} onChange={handleChange} />
                 <button type="submit">Update Dog</button>
             </form>
         </div>

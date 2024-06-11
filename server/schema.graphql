@@ -9,6 +9,7 @@ type Dog {
     name: String!
     breed: String!
     owner: String!
+    dateofbirth: String!
 }
 
 
@@ -22,10 +23,12 @@ input CreateDogInput {
     name: String!
     breed: String!
     owner: String!
+    dateofbirth: String!
 }
 
 input UpdateDogInput {
     id: Int!
-    name: String
-    breed: String
+    name: String!
+    breed: String!
+    dateofbirth: String!
 }

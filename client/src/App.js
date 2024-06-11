@@ -58,6 +58,10 @@ const App = () => {
         )}
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
       </Routes>
+
+      <footer>
+        <p>&copy; 2024 Dog App by Emil Peitersen</p>
+      </footer>
     </div>
   );
 };

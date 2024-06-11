@@ -9,6 +9,9 @@ const MyDogs = ({ userId }) => {
         variables: { id: userId }
     });
 
+    refetch();
+
+
     const [deleteDog] = useMutation(DELETE_DOG, {
         onCompleted: () => {
             refetch();
@@ -55,6 +58,7 @@ const MyDogs = ({ userId }) => {
                         <th>Name</th>
                         <th>Breed</th>
                         <th>Owner</th>
+                        <th>Date of Birth</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -65,6 +69,7 @@ const MyDogs = ({ userId }) => {
                             <td>{dog.name}</td>
                             <td>{dog.breed}</td>
                             <td>{dog.owner}</td>
+                            <td>{dog.dateofbirth}</td>
                             <td>
                                 <button onClick={() => handleUpdateClick(parseInt(dog.id))}>Update</button>
                                 <button onClick={() => handleDelete(parseInt(dog.id))}>Delete</button>

@@ -4,7 +4,9 @@ import { GET_DOGS } from '../lib/graphql/queries.js';
 import '../style.css';
 
 const DogList = () => {
-    const { loading, error, data } = useQuery(GET_DOGS);
+    const { loading, error, data, refetch } = useQuery(GET_DOGS);
+
+    refetch();
   
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -17,6 +19,7 @@ const DogList = () => {
               <th>Name</th>
               <th>Breed</th>
               <th>Owner</th>
+              <th>Date of Birth</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +29,7 @@ const DogList = () => {
                 <td>{dog.name}</td>
                 <td>{dog.breed}</td>
                 <td>{dog.owner}</td>
+                <td>{dog.dateofbirth}</td>
               </tr>
             ))}
           </tbody>

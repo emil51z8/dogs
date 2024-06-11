@@ -7,6 +7,7 @@ export const GET_DOGS = gql`
             name
             breed
             owner
+            dateofbirth
         }
     }`;
 
@@ -17,6 +18,7 @@ export const GET_DOGS_BY_ID = gql`
             name
             breed
             owner
+            dateofbirth
         }
     }`;
 
@@ -27,6 +29,7 @@ export const CREATE_DOG = gql`
       name
       breed
       owner
+      dateofbirth
     }
   }
 `;
@@ -48,6 +51,7 @@ export const UPDATE_DOG = gql`
     name
     breed
     owner
+    dateofbirth
   }
 }
 `;
@@ -58,6 +62,7 @@ export const GET_DOG_BY_ID = gql`
     name
     breed
     owner
+    dateofbirth
   }
 }
 `;

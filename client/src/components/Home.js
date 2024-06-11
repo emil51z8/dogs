@@ -7,6 +7,9 @@ const Home = () => {
             <p className="home-description">
                 This small App is made for dog owners and is estimated to be used by a small dog community. Feel free to browse the different pages and see what you can find.
             </p>
+            <img src="/dogs.jpg" alt="Dogs" className="home-image" /> 
+
+
         </div>
     );
 }

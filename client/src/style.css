@@ -126,3 +126,21 @@ table {
     background-color: #ffffff;
     font-size: 16px;
   }
+
+  /* Footer CSS */
+footer {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 1rem 0; /* Top and bottom padding */
+  text-align: center; /* Center the text */
+  position: fixed; /* Fix the footer at the bottom */
+  width: 100%; /* Full width */
+  bottom: 0; /* Align to the bottom */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-top: 1px solid #e7e7e7; /* Light border on top */
+  font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+footer p {
+  margin: 0; /* Remove default margins */
+  color: #6c757d; /* Muted text color */
+}

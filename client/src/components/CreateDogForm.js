@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import { CREATE_DOG, GET_DOGS } from '../lib/graphql/queries';
+import { CREATE_DOG, GET_DOGS, GET_DOGS_BY_ID } from '../lib/graphql/queries';
 
 const CreateDogForm = ({ user }) => {
-  const [formState, setFormState] = useState({ name: '', breed: '', owner: '' });
+  const [formState, setFormState] = useState({ name: '', breed: '', owner: '', dateofbirth: '' });
   const navigate = useNavigate();
   
   const [createDog, { data, loading, error }] = useMutation(CREATE_DOG, {
@@ -27,7 +27,13 @@ const CreateDogForm = ({ user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {
-      createDog({ variables: { input: { ...formState, owner: user } } });
+      // Parse dateofbirth as a Date object
+      const date = new Date(formState.dateofbirth);
+      // Format the date as a string (e.g., "YYYY-MM-DD")
+      const formattedDate = date.toISOString().split('T')[0];
+      
+      // Create the dog with the formatted date
+      createDog({ variables: { input: { ...formState, dateofbirth: formattedDate, owner: user } } });
     }
   };
 
@@ -50,7 +56,17 @@ const CreateDogForm = ({ user }) => {
             type="text"
             id="breed"
             name="breed"
-            value={formState.race}
+            value={formState.breed}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="dateofbirth">Date of Birth:</label>
+          <input
+            type="date"
+            id="dateofbirth"
+            name="dateofbirth"
+            value={formState.dateofbirth}
             onChange={handleChange}
           />
         </div>

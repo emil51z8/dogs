@@ -21,11 +21,12 @@ export async function getDogsById(id) {
     }
 }
 
-export async function createDog({ name, breed, owner }) {
+export async function createDog({ name, breed, owner, dateofbirth }) {
     const dog = {
         name: name,
         breed: breed,
         owner: owner,
+        dateofbirth: dateofbirth
     }
    
     
@@ -47,12 +48,12 @@ export async function deleteDog(id) {
     return dog;
 }
 
-export async function updateDog({ id, name, breed }) {
+export async function updateDog({ id, name, breed, dateofbirth }) {
     const dog = await getDogsTable().first().where({ id });
     if (!dog) {
         throw new Error(`Dog with id ${id} not found`);
     }
-    const updatedFields = { name, breed };
+    const updatedFields = { name, breed, dateofbirth };
     await getDogsTable().update(updatedFields).where({ id });
     return { ...dog, ...updatedFields };
 }

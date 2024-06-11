@@ -13,13 +13,13 @@ export const resolvers = {
         }
     },
     Mutation: {
-        CreateDog: (_root, { input: { name, breed, owner } }) => {
-            return createDog({ name, breed, owner });
+        CreateDog: (_root, { input: { name, breed, owner, dateofbirth } }) => {
+            return createDog({ name, breed, owner, dateofbirth});
     },
         deleteDog: (_root, { id }) => deleteDog(id),
 
-        updateDog: (_root, { input: { id, name,breed} }) => {
-            return updateDog({ id, name,breed });
+        updateDog: (_root, { input: { id, name,breed,dateofbirth} }) => {
+            return updateDog({ id, name,breed, dateofbirth });
         }
     },
 };
